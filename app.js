@@ -92,7 +92,9 @@ function verificar() {
 }
 
 function guardarTiempo() {
-  let tiempoDisplay = document.querySelector("#tiempo").textContent.trim();
+  let tiempoDisplay = document
+    .querySelector(".temporizador")
+    .textContent.trim();
   let tiempoEnSegundos = convertirTiempo(tiempoDisplay);
   let tiemposGuardados = JSON.parse(localStorage.getItem("tiempo")) || [];
 
@@ -102,6 +104,7 @@ function guardarTiempo() {
       segundos: tiempoEnSegundos,
     });
     tiemposGuardados.sort((a, b) => a.segundos - b.segundos);
+    localStorage.setItem("tiempo", JSON.stringify(tiemposGuardados));
   } else if (tiemposGuardados.length === 5) {
     if (tiemposGuardados[4].segundos > tiempoEnSegundos) {
       tiemposGuardados.pop();
@@ -110,10 +113,9 @@ function guardarTiempo() {
         segundos: tiempoEnSegundos,
       });
       tiemposGuardados.sort((a, b) => a.segundos - b.segundos);
+      localStorage.setItem("tiempo", JSON.stringify(tiemposGuardados));
     }
   }
-
-  localStorage.setItem("tiempo", JSON.stringify(tiemposGuardados));
 }
 
 function convertirTiempo(tiempo) {
@@ -141,12 +143,11 @@ function temporizador() {
 if (localStorage.getItem("tiempo")) {
   let mejoresTiempos = JSON.parse(localStorage.getItem("tiempo"));
   let tiemposDiv = document.createElement("div");
-  tiemposDiv.id = "mejores-tiempos";
+  tiemposDiv.classList.add("tiempos");
   tiemposDiv.innerHTML = `<h2>Mejores Tiempos</h2>`;
-  mejoresTiempos.forEach((tiempo) => {
-    let tiempoP = document.createElement("p");
-    tiempoP.textContent = tiempo.tiempo;
-    tiemposDiv.appendChild(tiempoP);
+  mejoresTiempos.forEach((elemento) => {
+    let tiempo = `<h2>${elemento.tiempo}<h2/>`;
+    tiemposDiv.innerHTML += tiempo;
   });
   document.body.appendChild(tiemposDiv);
 }
