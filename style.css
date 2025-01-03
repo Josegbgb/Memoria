@@ -1,0 +1,99 @@
+body {
+  background-color: rgba(79, 3, 3, 0.231);
+}
+#cartas-container {
+  margin-top: 1em;
+  justify-items: center;
+  padding: 1rem;
+  display: none;
+  grid-template-columns: repeat(5, 18%);
+  row-gap: 2px;
+  column-gap: 2px;
+  justify-content: center;
+  width: 60%;
+  background-color: rgba(255, 255, 255, 0.677);
+  margin: auto;
+  border-radius: 2em;
+  border: solid black;
+}
+.cartas {
+  border-radius: 1rem;
+  width: 100%;
+  height: 120px;
+  max-width: 120px;
+  position: relative;
+  display: grid;
+}
+.par {
+  content-visibility: hidden;
+}
+.temporizador {
+  display: flex;
+  margin: 0.5em auto;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.548);
+  width: 25%;
+  height: 100px;
+  border-radius: 2em;
+  border: solid black;
+  font-size: x-large;
+}
+#btn-comenzar {
+  height: 100px;
+  margin: 0px auto;
+  display: block;
+  background-color: rgba(213, 213, 55, 0.678);
+  border-radius: 2rem;
+  border: none;
+}
+.tiempos {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  background-color: rgba(38, 51, 87, 0.678);
+  border-radius: 2rem;
+}
+
+@media (max-width: 480px) {
+  .temporizador {
+    height: 60px;
+    font-size: medium;
+  }
+  #cartas-container {
+    grid-template-columns: repeat(5, 19%);
+    width: 90%;
+  }
+  .cartas {
+    height: 80px;
+  }
+  .tiempos {
+    font-size: smaller;
+    width: 50%;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  #cartas-container {
+    width: 80%;
+  }
+  .cartas {
+    max-width: 100px;
+    height: 80px;
+  }
+  .tiempos {
+    font-size: smaller;
+    width: 50%;
+  }
+  .temporizador {
+    height: 60px;
+    font-size: larger;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  #cartas-container {
+    min-width: 550px;
+  }
+}
