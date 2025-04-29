@@ -11,7 +11,7 @@ body {
   column-gap: 2px;
   justify-content: center;
   width: 60%;
-  background-color: #fbf9e4;
+  background-color: #fbf9e499;
   margin: auto;
   border-radius: 2em;
   border: solid black;
@@ -277,13 +277,17 @@ button {
 }
 
 @media (max-width: 480px) {
+  #modal_confirmar {
+    width: 55%;
+  }
   .temporizador {
     height: 60px;
     font-size: medium;
   }
   #cartas-container {
-    grid-template-columns: repeat(4, 22.5%);
+    grid-template-columns: repeat(5, 20%);
     width: 90%;
+    padding: 10px;
   }
   .cartas {
     height: 80px;
@@ -304,6 +308,10 @@ button {
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
+  #modal_confirmar {
+    width: 55%;
+    max-width: 300px;
+  }
   #cartas-container {
     width: 80%;
   }
